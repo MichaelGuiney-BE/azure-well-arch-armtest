@@ -1,0 +1,13 @@
+# Pipeline to run ARM checker from AzSK against REM team ARM temaplates
+
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: AzSKARMTemplateChecker@4
+  displayName: 'Run AzSK Arm template checker'
+  inputs:
+    ARMTemplateFilePath: 'azuredeploy.json'
